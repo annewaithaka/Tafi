@@ -1,62 +1,76 @@
 # Sprint 0 — Project Discovery & Research
 
-**Sprint Goal:** "Understand what Tafi should become before we decide what to build."
-
-## Objectives
-
-- Establish an agreed **product direction** and **primary user**.
-- Define a **concrete MVP scope** built on user value, not existing tables.
-- Capture **owner decisions** and surface all assumptions.
-- Produce the **UX research questions**, architecture options, and a sprint roadmap.
-- Prepare **Sprint 1**.
-
-## Inputs
-
-- Existing repository (commit `c9e74d8`).
-- Current-state report: [`../TAFI-CURRENT-STATE-AND-UX-DISCOVERY.md`](../TAFI-CURRENT-STATE-AND-UX-DISCOVERY.md)
-  and condensed [`../discovery/current-state.md`](../discovery/current-state.md).
-- Owner knowledge and existing marketing material.
-- Competitor research ([`../research/competitor-notes.md`](../research/competitor-notes.md)).
-- FMHY resources ([`../research/tools-and-resources.md`](../research/tools-and-resources.md)).
-- UX research framework ([`../ux/ux-research.md`](../ux/ux-research.md)).
-- Technical research ([`../research/research-plan.md`](../research/research-plan.md)).
+**Dates:** Mon 5 Oct – Fri 16 Oct 2026
+**Goal:** Understand what Tafi should become before we decide what to build.
 
 ## Tasks
 
-- [x] Review current implementation (discovery report)
-- [ ] Confirm primary user
-- [ ] Confirm MVP problem
+### Discovery and research
+
+- [x] Review the prototype (discovery report)
 - [x] Research competitors
-- [x] Research UX patterns (framework)
-- [x] Research technical requirements (plan)
-- [x] Review FMHY resources
-- [x] Evaluate architecture options
-- [x] Draft product brief
-- [x] Draft MVP scope
-- [x] Identify owner decisions
-- [ ] Agree MVP boundaries
-- [ ] Approve architecture direction
-- [ ] Define Sprint 1
+- [x] UX research framework, user flows, IA draft
+- [x] Technical research plan and architecture options
+
+### Decisions
+
+- [x] Confirm who the product owner is (client — D-03)
+- [x] Confirm product direction (parent safety service — D-04)
+- [x] Confirm first customer (schools — D-05)
+- [x] Confirm billing model (D-06) and configurable pricing (D-07)
+- [x] Decide architecture (rebuild — D-08) and drop Lovable (D-09)
+- [x] Agree delivery window (D-11)
+- [ ] Client acknowledges the rebuild plan and timeline — Anne
+- [ ] Review MVP 1 scope and `PROPOSED` decisions with the client — Anne
+
+### Security hygiene (allowed by D-02)
+
+- [ ] Make the GitHub repo private — Anne
+- [ ] Stop tracking `.env` and ignore env files (PR reviewed by Herman) — Anne
+- [ ] Ask the client whether the prototype backend holds real data; client switches off the prototype backend
+      and its Google Maps connector once we no longer need them — Anne
+
+### Client actions (long lead time — start now)
+
+- [ ] Client starts Meta Business verification and gets a dedicated phone number for Tafi's WhatsApp
+- [ ] Client introduces at least one candidate pilot school
+
+### User research
+
+- [ ] At least 2 conversations (school transport admin, driver, parent) before schools close for the term —
+      Anne and Herman
+- [ ] Record findings in `docs/ux/ux-research.md`
+
+### Close-out
+
+- [ ] Update product docs with research findings
+- [ ] Write `docs/sprints/sprint-1.md`
+- [ ] Sprint 0 review
 
 ## Deliverables
 
-- `docs/README.md`, `docs/STATUS.md`, `docs/DECISIONS.md`
-- `docs/discovery/current-state.md`
-- `docs/product/{product-brief,mvp-scope,owner-decisions}.md`
-- `docs/research/{research-plan,tools-and-resources,competitor-notes}.md`
-- `docs/ux/{ux-research,user-flows,information-architecture}.md`
-- `docs/architecture/{architecture-options,architecture-decision,deployment}.md`
-- `docs/sprints/{roadmap,backlog,sprint-0}.md`
-- Updated `AGENTS.md`
+- Updated: `AGENTS.md`, `README.md`, `docs/README.md`, `docs/STATUS.md`, `docs/DECISIONS.md`
+- Updated: `docs/product/{owner-decisions,product-brief,mvp-scope}.md`
+- Updated: `docs/architecture/architecture-decision.md`
+- Updated: `docs/sprints/{roadmap,backlog,sprint-0}.md`
+- New: `docs/sprints/sprint-1.md`
+- User conversation notes in `docs/ux/ux-research.md`
 
-## Exit Criteria
+## Definition of Done (exit criteria)
 
-Sprint 0 is complete only when:
+- [x] Product direction, first customer and billing model recorded in `DECISIONS.md`
+- [x] Architecture direction decided
+- [ ] MVP 1 scope reviewed with the client
+- [ ] Repo private; no secrets tracked
+- [ ] At least 2 user conversations recorded
+- [ ] Client has started WhatsApp verification and the pilot school search
+- [ ] Sprint 1 written and agreed
 
-- product direction is understood
-- primary user is agreed
-- MVP scope is agreed
-- major assumptions are visible
-- architecture direction is agreed or explicitly deferred
-- UX research questions are defined
-- Sprint 1 is ready
+## Review
+
+Fri 16 Oct — Anne, Herman and the client (30 minutes): decisions made, user findings, MVP 1 scope, Sprint 1 plan.
+
+## Next sprint
+
+**Sprint 1 (19–30 Oct): UX + project foundation.** Wireframes for the MVP 1 flows; repo layout, Docker Compose
+and CI; technical spikes (driver location, maps/ETA, worker choice); WhatsApp message templates drafted.
