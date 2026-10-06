@@ -1,10 +1,11 @@
 # Tafi Status
 
-_Last updated: 5 Oct 2026_
+_Last updated: 6 Oct 2026_
 
-**Phase:** Sprint 0 — Discovery & Research (5–16 Oct 2026)
+**Phase:** Sprint 1 — UX + Foundation (19–30 Oct 2026). **Sprint 0 closed 6 Oct 2026.**
 
-**Current objective:** Close the remaining Sprint 0 tasks and make Sprint 1 ready to start on Mon 19 Oct.
+**Current objective:** Design the MVP 1 flows and stand up the project scaffold, and clear the four Sprint 0
+carry-over items in the 7–16 Oct window.
 
 ## Decided (see [`DECISIONS.md`](DECISIONS.md))
 
@@ -18,9 +19,8 @@ _Last updated: 5 Oct 2026_
 
 ## In progress
 
-- Security hygiene: make the repo private; stop tracking `.env`.
-- User conversations (school transport admin, driver, parent).
-- Finding a pilot school.
+- Sprint 1 UX and foundation work ([`sprints/sprint-1.md`](sprints/sprint-1.md)).
+- Four Sprint 0 carry-over items C-01 to C-04 ([`sprints/sprint-0.md`](sprints/sprint-0.md#review--close-out)).
 
 ## Waiting on the client
 
@@ -28,11 +28,13 @@ _Last updated: 5 Oct 2026_
 - Meta Business verification and a dedicated phone number for Tafi's WhatsApp.
 - Introduction to at least one candidate pilot school.
 - Acknowledgement of the rebuild plan and timeline.
+- Review of the MVP 1 scope and the `PROPOSED` rows in [`product/owner-decisions.md`](product/owner-decisions.md).
 
 ## Risks
 
 | Risk | Impact | Mitigation |
 |---|---|---|
+| **Both GitHub repos are public and `.env` is still in git history** | Exposed Supabase keys and a Google Maps browser key | C-02: make repos private, rotate the keys, purge history — **most urgent open item** |
 | WhatsApp Business verification and template approval take time | Parent messages blocked in Sprint 5 | Client starts verification in Sprint 0; templates submitted by Sprint 3 |
 | School calendar: Term 3 usually closes late Oct/early Nov; schools reopen in January | No one to interview or pilot with over the holidays | User conversations in October; pilot in Term 1 2027 |
 | "Bus approaching" needs live location from a driver's phone; browsers may pause location when the screen locks (especially iPhone) | Core parent message unreliable | Sprint 1 technical spike before committing to an approach |
@@ -42,4 +44,5 @@ _Last updated: 5 Oct 2026_
 
 ## Next
 
-Finish Sprint 0 → Sprint 0 review on Fri 16 Oct → Sprint 1 (UX + project foundation) from Mon 19 Oct.
+Clear C-01 to C-04 (by 16 Oct) → Sprint 1 kickoff Mon 19 Oct → Sprint 1 review + client demo Fri 30 Oct →
+Sprint 2 (auth + tenancy) from Mon 2 Nov.
