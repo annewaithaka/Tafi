@@ -24,7 +24,7 @@ carry-over items in the 7–16 Oct window.
 
 ## Waiting on the client
 
-- Whether the prototype backend holds any real data; switch the prototype backend off once confirmed.
+- Deleting the Lovable project (disconnect GitHub first). Prototype held only test data; nothing was paid for (D-14).
 - Meta Business verification and a dedicated phone number for Tafi's WhatsApp.
 - Introduction to at least one candidate pilot school.
 - Acknowledgement of the rebuild plan and timeline.
@@ -34,7 +34,7 @@ carry-over items in the 7–16 Oct window.
 
 | Risk | Impact | Mitigation |
 |---|---|---|
-| **Both GitHub repos are public and `.env` is still in git history** | Exposed Supabase keys and a Google Maps browser key | C-02: make repos private, rotate the keys, purge history — **most urgent open item** |
+| Repo is public and `.env` is still in git history | Exposed keys belong to the client's Lovable project, which held only test data and no paid services (D-14) | Client deletes the Lovable project (C-04) so the keys stop working; make the repo private (C-02) |
 | WhatsApp Business verification and template approval take time | Parent messages blocked in Sprint 5 | Client starts verification in Sprint 0; templates submitted by Sprint 3 |
 | School calendar: Term 3 usually closes late Oct/early Nov; schools reopen in January | No one to interview or pilot with over the holidays | User conversations in October; pilot in Term 1 2027 |
 | "Bus approaching" needs live location from a driver's phone; browsers may pause location when the screen locks (especially iPhone) | Core parent message unreliable | Sprint 1 technical spike before committing to an approach |

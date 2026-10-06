@@ -19,5 +19,7 @@
 | D-11 | 2026-10-05 | Delivery window: **3 months, 4 max**; pilot-ready by end of January 2027 | Team capacity and client expectation | — | Team |
 | D-12 | 2026-10-05 | Parents use **WhatsApp only** in MVP 1 — no parent app | Client: "parents on WhatsApp"; matches market pattern | Parent app (rejected for MVP 1) | Client |
 | D-13 | 2026-10-06 | **Sprint 0 is closed** with four carry-over items (C-01 to C-04) owned and dated in [`sprints/sprint-0.md`](sprints/sprint-0.md#review--close-out). No MVP code was written in Sprint 0 | The remaining exit criteria are client- or interview-dependent; holding the sprint open does not unblock them | Keep Sprint 0 open until 16 Oct (rejected: no benefit, delays Sprint 1 prep) | Team |
+| D-14 | 2026-10-06 | The Lovable prototype held **only test data** and **no paid services** besides Lovable. The client approved disconnecting GitHub and deleting the Lovable project | Closes the prototype part of C-04; the exposed keys stop working once the project is deleted, so purging git history becomes optional | Keep the project running (rejected: no further use) | Client |
+| D-15 | 2026-10-06 | `annewaithaka/Tafi` is the **only source of truth**; any other copy of the repo is archived | One place for code, docs and PRs | Keep parallel repos (rejected: drift) | Team |
 
 <!-- Add new confirmed decisions with the next ID. -->

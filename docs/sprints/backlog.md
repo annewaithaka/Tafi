@@ -13,13 +13,14 @@ _Closed 6 Oct 2026. "Carried" items are C-01 to C-04 in [`sprint-0.md`](sprint-0
 | S0-02 | Decide architecture and delivery window | P0 | Anne, Herman | Done |
 | S0-03 | Client acknowledges rebuild plan | P0 | Anne | Carried (C-01) |
 | S0-04 | Review MVP 1 scope and PROPOSED decisions with client | P0 | Anne | Carried (C-01) |
-| S0-05 | Stop tracking `.env`; ignore env files | P0 | Anne | Done (PR #2) |
-| S0-06 | Confirm prototype data; client switches off prototype backend | P1 | Anne | Carried (C-04) |
+| S0-05 | Stop tracking `.env`; ignore env files | P0 | Anne | Done (`fix/untrack-env`) |
+| S0-06 | Confirm prototype data with the client | P1 | Anne | Done — test data only, nothing paid (D-14) |
 | S0-07 | Client starts Meta Business verification + WhatsApp number | P0 | Client | Carried (C-04) |
 | S0-08 | Client introduces a candidate pilot school | P0 | Client | Carried (C-04) |
-| S0-09 | At least 2 user conversations, notes in `ux-research.md` | P0 | Anne, Herman | Carried (C-03) |
+| S0-09 | At least 2 user conversations, notes in `ux-research.md` | P0 | Anne | Carried (C-03) |
 | S0-10 | Write Sprint 1 plan | P0 | Anne, Herman | Done |
-| S0-11 | Make both GitHub repos private; rotate exposed keys; purge `.env` from history | P0 | Herman | Carried (C-02) |
+| S0-11 | Make `annewaithaka/Tafi` private (D-15); purge `.env` from history (optional after S0-12) | P0 | Herman | Carried (C-02) |
+| S0-12 | Client disconnects GitHub from the Lovable project, then deletes it | P1 | Client | Carried (C-04) |
 
 ## Sprint 1 — UX + Foundation (19–30 Oct)
 
