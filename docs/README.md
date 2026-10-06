@@ -20,12 +20,13 @@ current decision in under a minute.
 
 ## Current phase
 
-**Sprint 0 — Discovery & Research (5–16 Oct 2026).** Product direction is decided; remaining work is user
-conversations, client long-lead actions, security hygiene, and Sprint 1 planning. See [`STATUS.md`](STATUS.md).
+**Sprint 1 — UX + Foundation (19–30 Oct 2026).** Sprint 0 closed on 6 Oct 2026 with four carry-over items
+(C-01 to C-04) being cleared in the 7–16 Oct window. See [`sprints/sprint-0.md`](sprints/sprint-0.md#review--close-out)
+and [`sprints/sprint-1.md`](sprints/sprint-1.md). Live status: [`STATUS.md`](STATUS.md).
 
 ## Current branch
 
-`codex/tafi-discovery-foundation` (planning/discovery work; `main` stays clean).
+`sprint-0` — Sprint 0 close-out and the Sprint 1 plan; to be merged into `main` by pull request.
 
 ## Where things live
 
@@ -37,7 +38,8 @@ conversations, client long-lead actions, security hygiene, and Sprint 1 planning
 | Product brief | [`product/product-brief.md`](product/product-brief.md) |
 | MVP scope | [`product/mvp-scope.md`](product/mvp-scope.md) |
 | Roadmap | [`sprints/roadmap.md`](sprints/roadmap.md) |
-| Sprint 0 plan | [`sprints/sprint-0.md`](sprints/sprint-0.md) |
+| Sprint 0 plan + close-out | [`sprints/sprint-0.md`](sprints/sprint-0.md) |
+| Sprint 1 plan (current) | [`sprints/sprint-1.md`](sprints/sprint-1.md) |
 | Backlog | [`sprints/backlog.md`](sprints/backlog.md) |
 | Architecture decision | [`architecture/architecture-decision.md`](architecture/architecture-decision.md) |
 | Architecture options (history) | [`architecture/architecture-options.md`](architecture/architecture-options.md) |

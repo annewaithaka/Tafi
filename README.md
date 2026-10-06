@@ -5,7 +5,9 @@ off, or the bus is approaching. Schools are the first customers; other transport
 
 ## Status
 
-**Sprint 0 — Discovery & Research.** See [`docs/STATUS.md`](docs/STATUS.md).
+**Sprint 1 — UX + Foundation (19–30 Oct 2026).** Sprint 0 closed on 6 Oct 2026.
+See [`docs/STATUS.md`](docs/STATUS.md), [`docs/sprints/sprint-0.md`](docs/sprints/sprint-0.md) and
+[`docs/sprints/sprint-1.md`](docs/sprints/sprint-1.md).
 
 ## Repository contents
 

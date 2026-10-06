@@ -16,10 +16,12 @@ Discovery → Research → Product decision → UX/UI → Architecture → Imple
 
 ## Current Phase
 
-**Sprint 0 — Discovery & Research (5–16 Oct 2026).** Therefore:
+**Sprint 1 — UX + Foundation (19–30 Oct 2026).** Sprint 0 closed on 6 Oct 2026; its four carry-over items
+(C-01 to C-04) are in [`docs/sprints/sprint-0.md`](docs/sprints/sprint-0.md#review--close-out) and the current
+plan is [`docs/sprints/sprint-1.md`](docs/sprints/sprint-1.md). Therefore:
 
 - do not implement MVP features unless explicitly instructed
-- security hygiene fixes are allowed (repo visibility, secrets) — see `docs/DECISIONS.md` D-02
+- work to the Sprint 1 plan; security hygiene fixes stay allowed (repo visibility, secrets) — see `docs/DECISIONS.md` D-02
 - do not refactor or extend the prototype; it will be replaced
 - use documentation to capture decisions
 - ask for clarification where product requirements are ambiguous
