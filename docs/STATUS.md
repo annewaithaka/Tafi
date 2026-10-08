@@ -19,8 +19,8 @@ carry-over items in the 7–16 Oct window.
 
 ## In progress
 
-- Sprint 1, Herman's half: **done** — `backend/`, `frontend/`, the Docker Compose stack and the four spikes. Awaiting
-  review in PR #5 and a green CI run.
+- Sprint 1, Herman's half: **done except CI proof** — `backend/`, `frontend/`, the Docker Compose stack and the
+  four spikes are built and verified; the workflows are written and await a real pull-request run.
 - Sprint 1, Anne's half: wireframes, WhatsApp templates, the client review of MVP 1 scope and T1-15. See
   [`sprints/sprint-1.md`](sprints/sprint-1.md).
 - Four Sprint 0 carry-over items C-01 to C-04 ([`sprints/sprint-0.md`](sprints/sprint-0.md#review--close-out)).
@@ -33,7 +33,7 @@ carry-over items in the 7–16 Oct window.
 | T1-07 Backend | FastAPI with settings, JSON logging, `/health`, Alembic migration, Celery worker; ruff, mypy and 7 tests pass |
 | T1-08 Frontend | React 19 + Vite + Tailwind v4 on the prototype's design tokens; lint, typecheck and build pass on Node 22 |
 | T1-09 Local stack | `docker compose up` runs api + db + redis + worker + web; verified from a clean clone |
-| T1-10 CI | GitHub Actions workflows for both sides; green run pending on PR #5 |
+| T1-10 CI | GitHub Actions workflows for both sides; green run pending on the pull request |
 | T1-11 to T1-14 Spikes | Answers recorded in [`architecture/spikes/sprint-1-spikes.md`](architecture/spikes/sprint-1-spikes.md) |
 
 Proof of the foundation: the web app lists and creates organizations through the API against PostgreSQL, in a
