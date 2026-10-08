@@ -71,8 +71,9 @@ reference material.
 - The client's Lovable prototype is preserved read-only at the tag **`prototype-lovable-2026-07`** and removed
   from the working tree (D-09, D-14).
 
-CI runs on GitHub Actions; there is no image registry yet — the Sprint 1 stack builds locally, and the registry
-decision belongs with the Sprint 2 staging deployment.
+CI runs on GitHub Actions for every branch push and every pull request, with `backend` and `frontend` as separate
+workflows behind path filters. There is no image registry yet — the Sprint 1 stack builds locally, and the
+registry decision belongs with the Sprint 2 staging deployment.
 
 ## What could change this decision
 

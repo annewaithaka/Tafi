@@ -46,7 +46,7 @@
 | T1-07 | Backend skeleton: FastAPI app, settings from env, structured logging, `/health`, Alembic, Pytest | Running API in Docker | **Done** — ruff, mypy and 7 tests pass |
 | T1-08 | Frontend skeleton: React + Vite, routing, API client, design tokens, an accessible base layout | Running web app in Docker | **Done** — lint, typecheck and build pass on Node 22 |
 | T1-09 | Local stack: Docker Compose for api + db + redis + worker; `.env.example`; no secrets in the repo | `docker compose up` works from a clean clone | **Done** — verified from a clean clone |
-| T1-10 | CI: lint, typecheck and tests on every pull request | Green checks on a test PR | **In progress** — workflows added; not yet proven by a real PR run |
+| T1-10 | CI: lint, typecheck and tests on every pull request | Green checks on a test PR | **Done** — both workflows green on the branch ([backend](https://github.com/annewaithaka/Tafi/actions/runs/37755490970), [frontend](https://github.com/annewaithaka/Tafi/actions/runs/37755491116)); they now run on every branch push as well as pull requests |
 
 ### Spikes — timeboxed, answers recorded in [`../architecture/architecture-decision.md`](../architecture/architecture-decision.md)
 
