@@ -12,7 +12,8 @@ COPY --from=ghcr.io/astral-sh/uv:0.5.11 /uv /usr/local/bin/uv
 WORKDIR /app
 
 COPY pyproject.toml uv.lock ./
-RUN uv sync --frozen --no-install-project
+# `uv sync` installs the dev group by default; production must not ship it.
+RUN uv sync --frozen --no-install-project --no-dev
 
 COPY . .
 
