@@ -42,21 +42,23 @@
 
 | ID | Task | Deliverable | Status |
 |---|---|---|---|
-| T1-06 | Repo layout: `backend/` + `frontend/` in this repo; prototype preserved on a tag/archive branch | Committed scaffold + notes in `architecture-decision.md` | Not started |
-| T1-07 | Backend skeleton: FastAPI app, settings from env, structured logging, `/health`, Alembic, Pytest | Running API in Docker | Not started |
-| T1-08 | Frontend skeleton: React + Vite, routing, API client, design tokens, an accessible base layout | Running web app in Docker | Not started |
-| T1-09 | Local stack: Docker Compose for api + db + redis + worker; `.env.example`; no secrets in the repo | `docker compose up` works from a clean clone | Not started |
-| T1-10 | CI: lint, typecheck and tests on every pull request | Green checks on a test PR | Not started |
+| T1-06 | Repo layout: `backend/` + `frontend/` in this repo; prototype preserved on a tag/archive branch | Committed scaffold + notes in `architecture-decision.md` | **Done** — `backend/` + `frontend/`; prototype at tag `prototype-lovable-2026-07` |
+| T1-07 | Backend skeleton: FastAPI app, settings from env, structured logging, `/health`, Alembic, Pytest | Running API in Docker | **Done** — ruff, mypy and 7 tests pass |
+| T1-08 | Frontend skeleton: React + Vite, routing, API client, design tokens, an accessible base layout | Running web app in Docker | **Done** — lint, typecheck and build pass on Node 22 |
+| T1-09 | Local stack: Docker Compose for api + db + redis + worker; `.env.example`; no secrets in the repo | `docker compose up` works from a clean clone | **Done** — verified from a clean clone |
+| T1-10 | CI: lint, typecheck and tests on every pull request | Green checks on a test PR | **In progress** — workflows added; green run confirmed on PR #5 |
 
 ### Spikes — timeboxed, answers recorded in [`../architecture/architecture-decision.md`](../architecture/architecture-decision.md)
 
 | ID | Question | Owner | Status |
 |---|---|---|---|
-| T1-11 | Can a phone browser keep sharing location while the screen is locked (Android and iPhone)? If not, what is the fallback? | Herman | Not started |
-| T1-12 | Maps and ETA: Google Maps vs an OpenStreetMap-based option; how "5 minutes away" is calculated and what it costs | Herman | Not started |
-| T1-13 | Worker: Celery vs RQ vs APScheduler plus a queue | Herman | Not started |
-| T1-14 | PostgreSQL: DigitalOcean Managed Database vs a container with a persistent volume | Herman | Not started |
+| T1-11 | Can a phone browser keep sharing location while the screen is locked (Android and iPhone)? If not, what is the fallback? | Herman | **Done** — not reliable; wake lock trip mode |
+| T1-12 | Maps and ETA: Google Maps vs an OpenStreetMap-based option; how "5 minutes away" is calculated and what it costs | Herman | **Done** — Leaflet + OSM, local ETA calculation |
+| T1-13 | Worker: Celery vs RQ vs APScheduler plus a queue | Herman | **Done** — Celery kept |
+| T1-14 | PostgreSQL: DigitalOcean Managed Database vs a container with a persistent volume | Herman | **Done** — managed in staging/production |
 | T1-15 | WhatsApp Cloud API: template categories, approval time and the cost of a "utility" message | Anne | Not started |
+
+Answers are recorded in [`../architecture/spikes/sprint-1-spikes.md`](../architecture/spikes/sprint-1-spikes.md).
 
 ### Sprint 0 carry-over — must clear in the 7–16 Oct window
 

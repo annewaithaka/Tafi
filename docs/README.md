@@ -26,7 +26,8 @@ and [`sprints/sprint-1.md`](sprints/sprint-1.md). Live status: [`STATUS.md`](STA
 
 ## Current branch
 
-`sprint-0` — Sprint 0 close-out and the Sprint 1 plan; to be merged into `main` by pull request.
+`feature/sprint-1-foundation` — the Sprint 1 foundation (backend, frontend, local stack, CI, spike answers);
+to be merged into `main` by pull request.
 
 ## Where things live
 
@@ -42,6 +43,7 @@ and [`sprints/sprint-1.md`](sprints/sprint-1.md). Live status: [`STATUS.md`](STA
 | Sprint 1 plan (current) | [`sprints/sprint-1.md`](sprints/sprint-1.md) |
 | Backlog | [`sprints/backlog.md`](sprints/backlog.md) |
 | Architecture decision | [`architecture/architecture-decision.md`](architecture/architecture-decision.md) |
+| Sprint 1 spike answers | [`architecture/spikes/sprint-1-spikes.md`](architecture/spikes/sprint-1-spikes.md) |
 | Architecture options (history) | [`architecture/architecture-options.md`](architecture/architecture-options.md) |
 | Deployment model | [`architecture/deployment.md`](architecture/deployment.md) |
 | Prototype evidence report (detailed) | [`TAFI-CURRENT-STATE-AND-UX-DISCOVERY.md`](TAFI-CURRENT-STATE-AND-UX-DISCOVERY.md) |

@@ -33,15 +33,15 @@ _Plan: [`sprint-1.md`](sprint-1.md). Owners are proposed until the kickoff on 19
 | T1-03 | Parent WhatsApp templates and failure behaviour | P0 | Anne | Not started |
 | T1-04 | Retire stale hypothesis labels in product/UX docs | P1 | Anne | Not started |
 | T1-05 | Client review: MVP 1 scope + `PROPOSED` decisions (C-01) | P0 | Anne | Not started |
-| T1-06 | Repo layout: `backend/` + `frontend/`, prototype archived | P0 | Herman | Not started |
-| T1-07 | Backend skeleton (FastAPI, settings, logging, health, Alembic, Pytest) | P0 | Herman | Not started |
-| T1-08 | Frontend skeleton (React, routing, API client, base layout) | P0 | Herman | Not started |
-| T1-09 | Docker Compose: api + db + redis + worker; `.env.example` | P0 | Herman | Not started |
-| T1-10 | CI: lint, typecheck and tests on pull requests | P0 | Herman | Not started |
-| T1-11 | Spike: driver location with a locked screen (Android + iPhone) | P0 | Herman | Not started |
-| T1-12 | Spike: maps and ETA for "bus approaching" (cost + accuracy) | P0 | Herman | Not started |
-| T1-13 | Spike: worker choice (Celery / RQ / APScheduler) | P1 | Herman | Not started |
-| T1-14 | Spike: DigitalOcean Managed Database vs container | P1 | Herman | Not started |
+| T1-06 | Repo layout: `backend/` + `frontend/`, prototype archived | P0 | Herman | Done |
+| T1-07 | Backend skeleton (FastAPI, settings, logging, health, Alembic, Pytest) | P0 | Herman | Done |
+| T1-08 | Frontend skeleton (React, routing, API client, base layout) | P0 | Herman | Done |
+| T1-09 | Docker Compose: api + db + redis + worker; `.env.example` | P0 | Herman | Done |
+| T1-10 | CI: lint, typecheck and tests on pull requests | P0 | Herman | In progress — needs a green PR run |
+| T1-11 | Spike: driver location with a locked screen (Android + iPhone) | P0 | Herman | Done |
+| T1-12 | Spike: maps and ETA for "bus approaching" (cost + accuracy) | P0 | Herman | Done |
+| T1-13 | Spike: worker choice (Celery / RQ / APScheduler) | P1 | Herman | Done |
+| T1-14 | Spike: DigitalOcean Managed Database vs container | P1 | Herman | Done |
 | T1-15 | Spike: WhatsApp Cloud API template categories, approval time, cost | P0 | Anne | Not started |
 
 ## MVP 1

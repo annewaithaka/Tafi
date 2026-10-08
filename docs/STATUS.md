@@ -1,6 +1,6 @@
 # Tafi Status
 
-_Last updated: 6 Oct 2026_
+_Last updated: 8 Oct 2026_
 
 **Phase:** Sprint 1 — UX + Foundation (19–30 Oct 2026). **Sprint 0 closed 6 Oct 2026.**
 
@@ -19,8 +19,25 @@ carry-over items in the 7–16 Oct window.
 
 ## In progress
 
-- Sprint 1 UX and foundation work ([`sprints/sprint-1.md`](sprints/sprint-1.md)).
+- Sprint 1, Herman's half: **done** — `backend/`, `frontend/`, the Docker Compose stack and the four spikes. Awaiting
+  review in PR #5 and a green CI run.
+- Sprint 1, Anne's half: wireframes, WhatsApp templates, the client review of MVP 1 scope and T1-15. See
+  [`sprints/sprint-1.md`](sprints/sprint-1.md).
 - Four Sprint 0 carry-over items C-01 to C-04 ([`sprints/sprint-0.md`](sprints/sprint-0.md#review--close-out)).
+
+## What Sprint 1 has built so far (Herman)
+
+| Task | Result |
+|---|---|
+| T1-06 Repo layout | `backend/` + `frontend/`; the Lovable prototype moved out of the working tree and preserved at tag `prototype-lovable-2026-07` |
+| T1-07 Backend | FastAPI with settings, JSON logging, `/health`, Alembic migration, Celery worker; ruff, mypy and 7 tests pass |
+| T1-08 Frontend | React 19 + Vite + Tailwind v4 on the prototype's design tokens; lint, typecheck and build pass on Node 22 |
+| T1-09 Local stack | `docker compose up` runs api + db + redis + worker + web; verified from a clean clone |
+| T1-10 CI | GitHub Actions workflows for both sides; green run pending on PR #5 |
+| T1-11 to T1-14 Spikes | Answers recorded in [`architecture/spikes/sprint-1-spikes.md`](architecture/spikes/sprint-1-spikes.md) |
+
+Proof of the foundation: the web app lists and creates organizations through the API against PostgreSQL, in a
+browser, with the worker connected to Redis. Nothing of MVP 1 beyond that placeholder slice is implemented yet.
 
 ## Waiting on the client
 
@@ -44,5 +61,5 @@ carry-over items in the 7–16 Oct window.
 
 ## Next
 
-Clear C-01 to C-04 (by 16 Oct) → Sprint 1 kickoff Mon 19 Oct → Sprint 1 review + client demo Fri 30 Oct →
-Sprint 2 (auth + tenancy) from Mon 2 Nov.
+Anne reviews PR #5 → clear C-01 to C-04 (by 16 Oct) → Sprint 1 review + client demo Fri 30 Oct → Sprint 2
+(auth + tenancy) from Mon 2 Nov.
