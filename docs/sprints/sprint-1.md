@@ -1,10 +1,11 @@
 # Sprint 1 — UX + Foundation
 
-**Dates:** Mon 19 Oct – Fri 30 Oct 2026 (2 weeks)
+**Dates:** Mon 6 – Thu 9 Oct 2026 (run ahead of the planned 19–30 Oct window)
 **Goal:** Design the MVP 1 experience and stand up the project we will build it in.
+**Closed:** Thu 9 Oct 2026 — see [Review & close-out](#review--close-out).
 
-> Sprint 0 closed on 6 Oct with four carry-over items ([`sprint-0.md`](sprint-0.md#review--close-out)).
-> The 7–16 Oct window is used to clear those items; Sprint 1 starts on Mon 19 Oct as planned.
+> The team finished ahead of the roadmap's placeholder dates, so Sprint 1 ran in the week reserved for Sprint 0's
+> carry-over window. Both sets of carry-overs stayed open and are collected in [`../../homework/`](../../homework/README.md).
 
 ## Objectives
 
@@ -32,11 +33,11 @@
 
 | ID | Task | Deliverable | Status |
 |---|---|---|---|
-| T1-01 | School admin flows: sign in, students + guardians, routes + stops, vehicles + drivers, assignments, notification log | Wireframes + updated `ux/information-architecture.md` | Not started |
-| T1-02 | Driver flows: today's trips, start/end trip, per child boarded / dropped off / absent, location-sharing state | Wireframes + updated `ux/user-flows.md` | Not started |
-| T1-03 | Parent experience: the four messages (trip started, boarded, bus approaching, dropped off) + absent, and what happens when a message fails | WhatsApp templates draft + template copy approved by the client | Not started |
-| T1-04 | Retire the hypothesis labels that are now decided; keep `ASSUMPTION` only where it is still true | Updated product + UX docs | Not started |
-| T1-05 | Client review of MVP 1 scope and the `PROPOSED` rows in `owner-decisions.md` | Signed-off scope; decisions recorded in `DECISIONS.md` | Not started |
+| T1-01 | School admin flows: sign in, students + guardians, routes + stops, vehicles + drivers, assignments, notification log | Wireframes + updated `ux/information-architecture.md` | **Done** — four school portal screens in the deck; see [`../ux/wireframes.md`](../ux/wireframes.md) |
+| T1-02 | Driver flows: today's trips, start/end trip, per child boarded / dropped off / absent, location-sharing state | Wireframes + updated `ux/user-flows.md` | **Done** — three crew app screens in the same deck |
+| T1-03 | Parent experience: the four messages (trip started, boarded, bus approaching, dropped off) + absent, and what happens when a message fails | WhatsApp templates draft + template copy approved by the client | Not done — carried ([homework/sprint-1.md](../../homework/sprint-1.md)) |
+| T1-04 | Retire the hypothesis labels that are now decided; keep `ASSUMPTION` only where it is still true | Updated product + UX docs | Not done — carried |
+| T1-05 | Client review of MVP 1 scope and the `PROPOSED` rows in `owner-decisions.md` | Signed-off scope; decisions recorded in `DECISIONS.md` | Not done — carried |
 
 ### Foundation — Herman (lead)
 
@@ -56,7 +57,7 @@
 | T1-12 | Maps and ETA: Google Maps vs an OpenStreetMap-based option; how "5 minutes away" is calculated and what it costs | Herman | **Done** — Leaflet + OSM, local ETA calculation |
 | T1-13 | Worker: Celery vs RQ vs APScheduler plus a queue | Herman | **Done** — Celery kept |
 | T1-14 | PostgreSQL: DigitalOcean Managed Database vs a container with a persistent volume | Herman | **Done** — managed in staging/production |
-| T1-15 | WhatsApp Cloud API: template categories, approval time and the cost of a "utility" message | Anne | Not started |
+| T1-15 | WhatsApp Cloud API: template categories, approval time and the cost of a "utility" message | Anne | Not done — carried |
 
 Answers are recorded in [`../architecture/spikes/sprint-1-spikes.md`](../architecture/spikes/sprint-1-spikes.md).
 
@@ -74,17 +75,53 @@ See [`sprint-0.md`](sprint-0.md#review--close-out) for C-01 to C-04.
 
 ## Definition of Done
 
-- [ ] `docker compose up` starts api + db + redis + worker from a clean clone, and `/health` returns OK.
-- [ ] CI is green (lint, typecheck, backend tests) on the Sprint 1 pull requests.
+- [x] `docker compose up` starts api + db + redis + worker from a clean clone, and `/health` returns OK.
+- [x] CI is green (lint, typecheck, backend tests) on the Sprint 1 branch.
 - [ ] The client has reviewed and approved the wireframes and the MVP 1 scope (T1-05).
 - [ ] WhatsApp templates are drafted and the client has confirmed the wording (T1-03).
-- [ ] Every spike in T1-11 to T1-15 has a recorded answer, or an explicit "decide in Sprint 2".
+- [ ] Every spike in T1-11 to T1-15 has a recorded answer (T1-11 to T1-14 are answered; T1-15 is not).
 - [ ] Sprint 0 carry-over items C-01 to C-04 are closed, or re-dated with the client.
 
-## Review
+## Review & close-out
 
-**Fri 30 Oct, 30 minutes — Anne, Herman and the client.** Walk through the wireframes, the project scaffold and
-the spike results. Confirm the Sprint 2 goal (auth + tenancy) and any scope change.
+**Closed Thu 9 Oct 2026.** Two of the six Definition of Done items are met; the other four depend on the client and
+move to [`homework/sprint-1.md`](../../homework/sprint-1.md). The client walkthrough originally booked for 30 Oct
+now happens as the Sprint 2 demo.
+
+### What Sprint 1 delivered
+
+**Design (Anne).** An 11-screen high-fidelity wireframe deck covering the school portal, the crew app, the parent
+messages and the operator view. It is a single self-contained HTML file served by the app at `/wireframes` and
+openable straight from disk. Documented in [`../ux/wireframes.md`](../ux/wireframes.md).
+
+**Foundation (Herman).** `backend/` (FastAPI, settings, logging, `/health`, Alembic, Celery worker, 7 tests),
+`frontend/` (React + Vite + Tailwind on the prototype's design tokens, now split into a public side and a
+protected side), a Docker Compose stack verified from a clean clone with an empty database, and GitHub Actions
+CI green on both sides.
+
+**Spikes.** T1-11 to T1-14 answered in [`../architecture/spikes/sprint-1-spikes.md`](../architecture/spikes/sprint-1-spikes.md).
+
+### What was not finished
+
+| Item | Left over | Owner | Where it goes |
+|---|---|---|---|
+| T1-03 | Approved WhatsApp template copy — the wireframes show the message designs, not final wording | Anne | [`homework/sprint-1.md`](../../homework/sprint-1.md) |
+| T1-04 | Retiring the stale `ASSUMPTION` labels now that several are decided | Anne | homework |
+| T1-05 | Client review and sign-off of the MVP 1 scope and the `PROPOSED` decisions | Anne | homework; blocks Sprint 3 |
+| T1-15 | WhatsApp Cloud API spike (categories, approval time, cost) | Anne | homework; needed before Sprint 3 submits templates |
+| C-01 to C-04 | Sprint 0 carry-overs, unchanged | Anne, Herman, client | [`sprint-0.md`](sprint-0.md#review--close-out) |
+| Foundation PR | The branch is pushed and CI-green but the pull request is not open | Herman | homework |
+
+### Notes for the close-out
+
+- **The wireframes raise two scope questions.** The school portal navigation shows **Trips** and **Settings**,
+  which MVP 1 does not list, and the parent section presents **Option A (WhatsApp + a registration page)** next to
+  **Option B (a parent web dashboard)**. D-12 says parents use WhatsApp only, so Option B needs the client's
+  answer (owner-decision row 9). Both are in the homework.
+- **Nothing in the wireframes is built.** Screens 1–9 are targets for Sprints 3–5; screen 10 is not in MVP 1 and
+  screen 11 is after it.
+- Live trips, the message log and "needs attention" in screen 1 depend on the notification outbox, so they land
+  with Sprint 5, not Sprint 3.
 
 ## Next sprint
 

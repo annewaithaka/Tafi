@@ -22,27 +22,27 @@ _Closed 6 Oct 2026. "Carried" items are C-01 to C-04 in [`sprint-0.md`](sprint-0
 | S0-11 | Make `annewaithaka/Tafi` private (D-15); purge `.env` from history (optional after S0-12) | P0 | Herman | Carried (C-02) |
 | S0-12 | Client disconnects GitHub from the Lovable project, then deletes it | P1 | Client | Carried (C-04) |
 
-## Sprint 1 — UX + Foundation (19–30 Oct)
+## Sprint 1 — UX + Foundation (6–9 Oct, closed)
 
-_Plan: [`sprint-1.md`](sprint-1.md). Owners are proposed until the kickoff on 19 Oct._
+_Plan and close-out: [`sprint-1.md`](sprint-1.md). "Carried" items are in [`../../homework/sprint-1.md`](../../homework/sprint-1.md)._
 
 | ID | Task | Priority | Owner | Status |
 |---|---|---|---|---|
-| T1-01 | School admin wireframes + IA update | P0 | Anne | Not started |
-| T1-02 | Driver wireframes + user flows update | P0 | Anne | Not started |
-| T1-03 | Parent WhatsApp templates and failure behaviour | P0 | Anne | Not started |
-| T1-04 | Retire stale hypothesis labels in product/UX docs | P1 | Anne | Not started |
-| T1-05 | Client review: MVP 1 scope + `PROPOSED` decisions (C-01) | P0 | Anne | Not started |
+| T1-01 | School admin wireframes | P0 | Anne | Done — four school portal screens |
+| T1-02 | Driver wireframes | P0 | Anne | Done — three crew app screens |
+| T1-03 | Parent WhatsApp templates and failure behaviour | P0 | Anne | Carried (H1-1) |
+| T1-04 | Retire stale hypothesis labels in product/UX docs | P1 | Anne | Carried (H1-4) |
+| T1-05 | Client review: MVP 1 scope + `PROPOSED` decisions (C-01) | P0 | Anne | Carried (H1-3) |
 | T1-06 | Repo layout: `backend/` + `frontend/`, prototype archived | P0 | Herman | Done |
 | T1-07 | Backend skeleton (FastAPI, settings, logging, health, Alembic, Pytest) | P0 | Herman | Done |
 | T1-08 | Frontend skeleton (React, routing, API client, base layout) | P0 | Herman | Done |
 | T1-09 | Docker Compose: api + db + redis + worker; `.env.example` | P0 | Herman | Done |
-| T1-10 | CI: lint, typecheck and tests on pull requests | P0 | Herman | In progress — needs a green PR run |
+| T1-10 | CI: lint, typecheck and tests on pull requests | P0 | Herman | Done — green on the branch |
 | T1-11 | Spike: driver location with a locked screen (Android + iPhone) | P0 | Herman | Done |
 | T1-12 | Spike: maps and ETA for "bus approaching" (cost + accuracy) | P0 | Herman | Done |
 | T1-13 | Spike: worker choice (Celery / RQ / APScheduler) | P1 | Herman | Done |
 | T1-14 | Spike: DigitalOcean Managed Database vs container | P1 | Herman | Done |
-| T1-15 | Spike: WhatsApp Cloud API template categories, approval time, cost | P0 | Anne | Not started |
+| T1-15 | Spike: WhatsApp Cloud API template categories, approval time, cost | P0 | Anne | Carried (H1-2) |
 
 ## MVP 1
 
