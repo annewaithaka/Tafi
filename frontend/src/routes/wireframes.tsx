@@ -1,9 +1,19 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { buttonStyles } from "@/components/ui/button-styles";
 import { cn } from "@/lib/utils";
 
 const DECK_SRC = "/wireframes/tafi-mvp1-wireframes.html";
+
+/**
+ * The deck is an export from a design tool, not a responsive page: it lays its
+ * screens out on a fixed canvas (1440px wide for desktop screens, 390px for the
+ * phone ones). We scale it to whatever width we have instead of letting it
+ * scroll sideways, and stop shrinking once the text would be unreadable — below
+ * that the deck pans, which is the honest way to read a desktop wireframe on a
+ * phone.
+ */
+const MIN_ZOOM = 0.5;
 
 interface Screen {
   /** Exact heading text in the exported deck, used to find the screen. */
@@ -100,64 +110,107 @@ const titles = new Set(allScreens.map((screen) => screen.title));
 
 export function WireframesPage() {
   const frameRef = useRef<HTMLIFrameElement>(null);
+  const deckRef = useRef<HTMLDivElement>(null);
+  const naturalWidthRef = useRef<number | null>(null);
   const [offsets, setOffsets] = useState<Record<string, number>>({});
   const [active, setActive] = useState<string | null>(null);
 
+  /**
+   * Scale the deck to the frame, then record where each screen starts. The
+   * export unpacks its screens with JavaScript, so this runs repeatedly until
+   * every screen is accounted for.
+   */
+  const sync = useCallback(() => {
+    const frame = frameRef.current;
+    const doc = frame?.contentDocument;
+    if (!frame || !doc) {
+      return false;
+    }
+
+    // Measure the deck's natural width before any zoom is applied.
+    if (naturalWidthRef.current === null) {
+      const width = doc.documentElement.scrollWidth || doc.body.scrollWidth;
+      if (width > 0) {
+        naturalWidthRef.current = width;
+      }
+    }
+
+    const available = frame.clientWidth;
+    if (naturalWidthRef.current && available > 0) {
+      const zoom = Math.max(MIN_ZOOM, Math.min(1, available / naturalWidthRef.current));
+      const value = String(Math.round(zoom * 1000) / 1000);
+      if (doc.documentElement.style.getPropertyValue("zoom") !== value) {
+        doc.documentElement.style.setProperty("zoom", value);
+      }
+    }
+
+    const de = doc.documentElement;
+    const scrollTop = de.scrollTop || doc.body.scrollTop || 0;
+    const found: Record<string, number> = {};
+
+    for (const node of Array.from(doc.querySelectorAll<HTMLElement>("*"))) {
+      if (node.children.length > 0) {
+        continue;
+      }
+      const text = (node.textContent ?? "").trim();
+      if (!titles.has(text)) {
+        continue;
+      }
+      // The heading sits above its screen: aim at the screen itself.
+      const host = node.parentElement;
+      const sibling = host?.nextElementSibling;
+      const target = sibling instanceof HTMLElement ? sibling : (host ?? node);
+      const top = Math.max(0, target.getBoundingClientRect().top + scrollTop - 8);
+      if (found[text] === undefined || top < found[text]) {
+        found[text] = top;
+      }
+    }
+
+    setOffsets(found);
+    return Object.keys(found).length >= titles.size;
+  }, []);
+
   useEffect(() => {
+    const frame = frameRef.current;
     let attempts = 0;
     let timer: number | undefined;
 
-    // The deck is a bundle that unpacks its screens with JavaScript, so the
-    // headings appear late and grow the page. Re-measure until every screen is
-    // accounted for, then stop.
-    function measure(): boolean {
-      const doc = frameRef.current?.contentDocument;
-      if (!doc) {
-        return false;
-      }
-
-      const found: Record<string, number> = {};
-      const scrollTop = doc.documentElement.scrollTop || doc.body.scrollTop || 0;
-      for (const node of Array.from(doc.querySelectorAll<HTMLElement>("*"))) {
-        if (node.children.length > 0) {
-          continue;
-        }
-        const text = (node.textContent ?? "").trim();
-        if (!titles.has(text)) {
-          continue;
-        }
-        const top = Math.max(0, node.getBoundingClientRect().top + scrollTop - 16);
-        if (found[text] === undefined || top < found[text]) {
-          found[text] = top;
-        }
-      }
-
-      setOffsets(found);
-      return Object.keys(found).length >= titles.size;
-    }
-
     function tick() {
       attempts += 1;
-      const complete = measure();
-      if (!complete && attempts < 40) {
-        timer = window.setTimeout(tick, 500);
+      if (!sync() && attempts < 60) {
+        timer = window.setTimeout(tick, 400);
       }
     }
 
-    const frame = frameRef.current;
-    frame?.addEventListener("load", tick);
+    function onLoad() {
+      // A reload means a fresh unpack: measure the width again.
+      naturalWidthRef.current = null;
+      attempts = 0;
+      tick();
+    }
+
+    function onResize() {
+      sync();
+    }
+
+    frame?.addEventListener("load", onLoad);
+    window.addEventListener("resize", onResize);
     tick();
 
     return () => {
       if (timer) {
         window.clearTimeout(timer);
       }
-      frame?.removeEventListener("load", tick);
+      frame?.removeEventListener("load", onLoad);
+      window.removeEventListener("resize", onResize);
     };
-  }, []);
+  }, [sync]);
 
   function openScreen(screen: Screen) {
     setActive(screen.title);
+    // The deck may be below the list on a narrow screen, so bring it into view.
+    deckRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+
     const top = offsets[screen.title];
     const frame = frameRef.current;
     if (frame?.contentWindow && top !== undefined) {
@@ -169,8 +222,17 @@ export function WireframesPage() {
 
   const measured = Object.keys(offsets).length;
 
+  function chipClass(isActive: boolean) {
+    return cn(
+      "rounded-full border px-3 py-1.5 text-xs font-medium whitespace-nowrap transition",
+      isActive
+        ? "border-primary bg-brand-soft text-foreground"
+        : "border-border bg-card text-muted-foreground hover:text-foreground",
+    );
+  }
+
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-10">
+    <div className="mx-auto w-full max-w-[1600px] px-4 py-10">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h1 className="font-display text-2xl font-bold tracking-tight sm:text-3xl">MVP 1 wireframes</h1>
@@ -184,45 +246,44 @@ export function WireframesPage() {
         </a>
       </div>
 
-      <div className="mt-8 grid gap-6 lg:grid-cols-[20rem_1fr]">
-        <nav aria-label="Wireframe screens" className="flex flex-col gap-5">
-          {groups.map((group) => (
-            <div key={group.name}>
-              <h2 className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">{group.name}</h2>
-              <ul className="mt-2 flex flex-col gap-1">
-                {group.screens.map((screen) => (
-                  <li key={screen.title}>
-                    <button
-                      type="button"
-                      onClick={() => openScreen(screen)}
-                      className={cn(
-                        "w-full rounded-lg border px-3 py-2 text-left transition",
-                        active === screen.title
-                          ? "border-primary bg-brand-soft"
-                          : "border-transparent hover:border-border hover:bg-muted",
-                      )}
-                    >
-                      <span className="block text-sm font-medium">{screen.label}</span>
-                      <span className="mt-0.5 block text-xs text-muted-foreground">{screen.blurb}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <p className="text-xs text-muted-foreground">
-            {measured}/{allScreens.length} screens ready in the preview.
-          </p>
-        </nav>
+      {/* One jump bar above the deck, at every width, so a click is always visible. */}
+      <nav aria-label="Jump to a wireframe screen" className="mt-8 flex flex-col gap-3">
+        {groups.map((group) => (
+          <div key={group.name}>
+            <p className="text-[0.7rem] font-semibold tracking-wide text-muted-foreground uppercase">
+              {group.name}
+            </p>
+            <ul className="mt-1.5 flex gap-2 overflow-x-auto pb-1">
+              {group.screens.map((screen) => (
+                <li key={screen.title}>
+                  <button
+                    type="button"
+                    onClick={() => openScreen(screen)}
+                    className={chipClass(active === screen.title)}
+                    title={screen.blurb}
+                  >
+                    {screen.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        <p className="text-xs text-muted-foreground">
+          {measured}/{allScreens.length} screens ready in the preview.
+        </p>
+      </nav>
 
-        <div className="overflow-hidden rounded-xl border border-border bg-card">
-          <iframe
-            ref={frameRef}
-            src={DECK_SRC}
-            title="Tafi MVP 1 wireframes"
-            className="h-[70vh] w-full lg:h-[calc(100dvh-12rem)]"
-          />
-        </div>
+      <div
+        ref={deckRef}
+        className="mt-6 scroll-mt-20 overflow-hidden rounded-xl border border-border bg-card"
+      >
+        <iframe
+          ref={frameRef}
+          src={DECK_SRC}
+          title="Tafi MVP 1 wireframes"
+          className="h-[70vh] w-full lg:h-[calc(100dvh-10rem)]"
+        />
       </div>
     </div>
   );
