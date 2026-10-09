@@ -1,7 +1,32 @@
 # Tafi web app
 
-The school and platform admin experience. React 19 + TypeScript + Vite, Tailwind v4, TanStack Query
-and React Router. Design tokens are carried over from the client's prototype (see `src/styles.css`).
+React 19 + TypeScript + Vite, Tailwind v4, TanStack Query and React Router. Design tokens are carried over from
+the client's prototype (see `src/styles.css`).
+
+The app has two sides. The **public side** is what anyone can open while Tafi is being built. The **protected
+side** is the school portal, behind a session check.
+
+| Route | Side | What it is |
+|---|---|---|
+| `/` | Public | Landing page |
+| `/wireframes` | Public | The MVP 1 wireframes, with a jump-to-screen list |
+| `/signin` | Public | Placeholder sign-in; real accounts arrive in Sprint 2 |
+| `/app` | Protected | School portal dashboard |
+| `/app/organizations` | Protected | The first working slice: lists and creates organizations through the API |
+
+Until Sprint 2 lands, the protected side is guarded by a development session in `localStorage`
+(`tafi.devSession`), set by the "Enter the demo" button on `/signin`. `src/components/require-auth.tsx` is the
+only place that checks it, so replacing it with the real session is a one-file change.
+
+## The wireframes
+
+Anne's Sprint 1 deck lives at `public/wireframes/tafi-mvp1-wireframes.html` — one self-contained file holding
+eleven screens, stacked vertically. It is served at `/wireframes/tafi-mvp1-wireframes.html` and can also be
+opened straight from disk in a browser. The gallery page finds each screen in the deck by its heading and
+scrolls to it, so the deck's headings are the contract: rename one in the export and update the same string in
+`src/routes/wireframes.tsx`.
+
+See [`../docs/ux/wireframes.md`](../docs/ux/wireframes.md) for what each screen shows.
 
 ## Run it
 

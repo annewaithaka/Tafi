@@ -13,7 +13,8 @@ export function DashboardPage() {
       <div>
         <h1 className="font-display text-2xl font-bold tracking-tight">Dashboard</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Foundation build. This page is a placeholder until the Sprint 1 wireframes are approved.
+          Foundation build. The school portal becomes this screen once the wireframes are approved and Sprint 2
+          adds accounts.
         </p>
       </div>
 
