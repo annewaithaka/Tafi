@@ -20,12 +20,17 @@ current decision in under a minute.
 
 ## Current phase
 
-**Sprint 0 — Discovery & Research (5–16 Oct 2026).** Product direction is decided; remaining work is user
-conversations, client long-lead actions, security hygiene, and Sprint 1 planning. See [`STATUS.md`](STATUS.md).
+**Sprint 3 closed on 14 Oct 2026; Sprint 4 — Crew Trip App is next**, and can start early. Accounts, tenancy,
+school onboarding and the school's own data (children, guardians, consent, routes, stops, vehicles, crew,
+assignments, roster import) are in place and verified against the running stack. See
+[`delivery/sprint-3.md`](delivery/sprint-3.md) for what to open and what to expect, and
+[`sprints/roadmap.md`](sprints/roadmap.md) for what comes next. What is still open is in
+[`../homework/README.md`](../homework/README.md). Live status: [`STATUS.md`](STATUS.md).
 
 ## Current branch
 
-`codex/tafi-discovery-foundation` (planning/discovery work; `main` stays clean).
+`feature/sprint-3-school-operations` — Sprint 3 stacked on `feature/sprint-1-foundation` (Sprints 1 and 2);
+still to be merged into `main` by pull request (PR #4, the Sprint 0 close-out, is also still open).
 
 ## Where things live
 
@@ -37,9 +42,20 @@ conversations, client long-lead actions, security hygiene, and Sprint 1 planning
 | Product brief | [`product/product-brief.md`](product/product-brief.md) |
 | MVP scope | [`product/mvp-scope.md`](product/mvp-scope.md) |
 | Roadmap | [`sprints/roadmap.md`](sprints/roadmap.md) |
-| Sprint 0 plan | [`sprints/sprint-0.md`](sprints/sprint-0.md) |
+| Sprint 0 plan + close-out | [`sprints/sprint-0.md`](sprints/sprint-0.md) |
+| Sprint 1 plan + close-out | [`sprints/sprint-1.md`](sprints/sprint-1.md) |
+| Sprint 2 plan + close-out | [`sprints/sprint-2.md`](sprints/sprint-2.md) |
+| Sprint 3 plan + close-out | [`sprints/sprint-3.md`](sprints/sprint-3.md) |
+| Sprint 4 plan (next) | [`sprints/sprint-4.md`](sprints/sprint-4.md) |
+| Sprint 3 delivery (what to open) | [`delivery/sprint-3.md`](delivery/sprint-3.md) |
+| Sprint 4 delivery (what to open) | [`delivery/sprint-4.md`](delivery/sprint-4.md) |
+| Data model (as built) | [`architecture/data-model.md`](architecture/data-model.md) |
+| Sprint 2 delivery (what to open) | [`delivery/sprint-2.md`](delivery/sprint-2.md) |
 | Backlog | [`sprints/backlog.md`](sprints/backlog.md) |
+| MVP 1 wireframes (11 screens) | [`ux/wireframes.md`](ux/wireframes.md) |
+| Homework — what is left | [`../homework/README.md`](../homework/README.md) |
 | Architecture decision | [`architecture/architecture-decision.md`](architecture/architecture-decision.md) |
+| Sprint 1 spike answers | [`architecture/spikes/sprint-1-spikes.md`](architecture/spikes/sprint-1-spikes.md) |
 | Architecture options (history) | [`architecture/architecture-options.md`](architecture/architecture-options.md) |
 | Deployment model | [`architecture/deployment.md`](architecture/deployment.md) |
 | Prototype evidence report (detailed) | [`TAFI-CURRENT-STATE-AND-UX-DISCOVERY.md`](TAFI-CURRENT-STATE-AND-UX-DISCOVERY.md) |
